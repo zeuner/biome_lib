@@ -34,12 +34,14 @@ biome_lib.total_no_aircheck_calls = 0
 biome_lib.queue_run_ratio = tonumber(minetest.settings:get("biome_lib_queue_run_ratio")) or 100
 
 -- Boilerplate to support localized strings if intllib mod is installed.
-local S
-if minetest.get_modpath("intllib") then
-	S = intllib.Getter()
-else
-	S = function(s) return s end
-end
+local MP = minetest.get_modpath(
+    minetest.get_current_modname(
+    )
+)
+
+local S, NS = dofile(
+    MP .. "/intllib.lua"
+)
 biome_lib.intllib = S
 
 local DEBUG = false --... except if you want to spam the console with debugging info :-)
