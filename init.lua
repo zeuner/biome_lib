@@ -209,9 +209,9 @@ function biome_lib:populate_surfaces(biome, nodes_or_function_or_model, snodes, 
 	for i = 1, #snodes do
 		local pos = snodes[i]
 		local p_top = { x = pos.x, y = pos.y + 1, z = pos.z }
-		local noise1 = perlin_fertile_area:get2d({x=pos.x, y=pos.z})
-		local noise2 = biome_lib.perlin_temperature:get2d({x=pos.x, y=pos.z})
-		local noise3 = biome_lib.perlin_humidity:get2d({x=pos.x+150, y=pos.z+50})
+		local noise1 = perlin_fertile_area:get_2d({x=pos.x, y=pos.z})
+		local noise2 = biome_lib.perlin_temperature:get_2d({x=pos.x, y=pos.z})
+		local noise3 = biome_lib.perlin_humidity:get_2d({x=pos.x+150, y=pos.z+50})
 		local biome_surfaces_string = dump(biome.surface)
 		local surface_ok = false
 
